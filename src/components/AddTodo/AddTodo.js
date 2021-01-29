@@ -8,11 +8,13 @@ const AddTodo = () => {
   const dispatch = useDispatch();
   function handleInputChange(e) {
     setTasks(e.target.value);
+    console.log(tasks);
   }
   function handleFormSubmit(e) {
     e.preventDefault();
-    setTasks(dispatch(addTodo({ task: tasks, id: cuid() })));
+    dispatch(addTodo({ task: tasks, id: cuid() }));
     e.target.userInput.value = "";
+    console.log(tasks);
   }
   return (
     <form onSubmit={handleFormSubmit}>
